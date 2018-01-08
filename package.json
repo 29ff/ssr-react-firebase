@@ -4,7 +4,7 @@
   "description": "Generate React application on Server Side with Firebase",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack --config webpack.config.js",
+    "webpack": "webpack -p --config webpack.config.js",
     "firebase": "yarn webpack && yarn babel && firebase serve --only functions,hosting",
     "babel": "babel src -d functions/src && babel index.js -d functions"
   },
