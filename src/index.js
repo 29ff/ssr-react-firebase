@@ -4,6 +4,5 @@ import App from './App'
 
 import getFacts from './facts'
 
-getFacts().then((facts) => {
-  render(<App facts={facts} />, document.getElementById('root'))
-})
+const facts = (window.facts) ? window.facts : {}
+render(<App facts={facts} />, document.getElementById('root'))

@@ -42,6 +42,7 @@ app.get('**', function (req, res) {
     var index = _fs2.default.readFileSync(__dirname + '/index.html', 'utf8');
     var reactHtml = (0, _server.renderToString)(_react2.default.createElement(_App2.default, { facts: facts }));
     var html = index.replace('<!-- ::APP:: -->', reactHtml);
+    html = html.replace('/* ::facts:: */', 'window.facts = ' + JSON.stringify(facts));
     res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
     res.send(html);
   });

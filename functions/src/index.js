@@ -16,6 +16,5 @@ var _facts2 = _interopRequireDefault(_facts);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _facts2.default)().then(function (facts) {
-  (0, _reactDom.render)(_react2.default.createElement(_App2.default, { facts: facts }), document.getElementById('root'));
-});
+var facts = window.facts ? window.facts : {};
+(0, _reactDom.render)(_react2.default.createElement(_App2.default, { facts: facts }), document.getElementById('root'));

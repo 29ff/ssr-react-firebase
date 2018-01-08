@@ -13,7 +13,8 @@ app.get('**', (req, res)  => {
   getFacts().then(facts => {
     const index = fs.readFileSync(`${__dirname}/index.html`, 'utf8')
     const reactHtml = renderToString(<App facts={facts} />)
-    const html = index.replace('<!-- ::APP:: -->', reactHtml)
+    let html = index.replace('<!-- ::APP:: -->', reactHtml)
+    html = html.replace('/* ::facts:: */', `window.facts = ${JSON.stringify(facts)}`)
     res.set('Cache-Control', 'public, max-age=600, s-maxage=1200')
     res.send(html)
   })
